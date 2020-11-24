@@ -11,4 +11,5 @@ export const Datapoint = mongoose.model('datapoint', {
     'timestamp': {type: Date, required: true},
     'data_type': {type: String, required: true},
     'content': {type: String, requried: true},
+    'timezone':{type: String, required: true},
 })
