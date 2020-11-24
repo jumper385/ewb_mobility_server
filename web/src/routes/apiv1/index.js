@@ -2,7 +2,8 @@ import * as db from '../../helpers/db/mongoosehelpers'
 import { Datapoint } from '../../helpers/db/schemas';
 
 export const get = async (req, res) => {
-    res.json(await db.queryCollection(Datapoint));
+    let {query} = req.body;
+    res.json(await db.queryCollection(Datapoint, query));
 }
 
 export const post = (req,res) => {
