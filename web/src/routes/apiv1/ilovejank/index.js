@@ -3,7 +3,8 @@ export const get = (req,res) => {
 }
 
 export const post = (req,res) => {
+    let payload = req.body;
     console.log("we have a post");
-    console.log(req.body);
-    res.json(req.body);
+    console.log(payload);
+    res.json(payload);
 }
