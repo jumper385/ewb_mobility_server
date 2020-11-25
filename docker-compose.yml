@@ -9,12 +9,16 @@ services:
             - 8081:3000
         environment: 
             - MONGODB=db:27017
+        volumes:
+            - /src:/src
     db:
         image: mongo:4.1.8-xenial
         container_name: ewb_monitoring_db
         restart: unless-stopped
         volumes:
             - dbdata:/data/db
+        ports:
+            - 8975:27017
 
 volumes:
     dbdata:
