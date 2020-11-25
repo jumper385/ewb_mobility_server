@@ -22,7 +22,6 @@ export const queryCollection = async (schema, query) => {
 
 export const postCollection = async (schema, body) => {
 	// posts a new document
-	console.log(body);
 	if(body.length == undefined) return await schema.create(body);
 	if(body.length > 1) return await schema.insertMany(body);
 };
