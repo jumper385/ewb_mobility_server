@@ -9,22 +9,20 @@ export const get = async (req, res) => {
 export const post = (req,res) => {
     try {
         let { payload, filename } = req.body;
-        let rows = payload.split('||');
-        rows = rows
+        let rows = payload
+            .split('||')
             .filter(x => x != '')
             .map(x => x.split(',')
             .filter(x => x.length > 1 ))
-            .map(x => {
-                return {
-                    vehicle_id: x[0],
-                    datapoint_id: x[1],
-                    timestamp: x[2],
-                    timezone: x[3],
-                    data_type: x[4],
-                    content: x.slice(5).join(','),
-                    uploadFileName: filename,
-                }
-            });
+            .map(x => ({
+                vehicle_id: x[0],
+                datapoint_id: x[1],
+                timestamp: x[2],
+                timezone: x[3],
+                data_type: x[4],
+                content: x.slice(5).join(','),
+                uploadFileName: filename,
+            }));
 
         console.log(rows)
         console.log(payload)
