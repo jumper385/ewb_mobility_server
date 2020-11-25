@@ -26,6 +26,9 @@ export const post = (req,res) => {
                 }
             });
 
+        console.log(rows)
+        console.log(payload)
+
         db.postCollection(Datapoint, rows);
         console.log(`Saved Upload from ${filename}`)
         res.json('success');
